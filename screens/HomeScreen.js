@@ -1,6 +1,7 @@
-import {Text, View, StyleSheet} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context";
 import tw from "twrnc";
+import {ColorImage} from "../components/ColorImage";
 
 function Banner() {
     return (
@@ -14,10 +15,7 @@ export function HomeScreen() {
     return (
         <SafeAreaView>
             <Banner/>
-            <View style={tw`h-full bg-yellow-300`}>
-                <View style={tw`w-20 h-30 bg-red-400 border-2 border-red-800 m-3`}/>
-                <View style={tw`w-20 h-30 bg-green-400 border-2 border-green-800 m-3`}/>
-            </View>
+            <ColorImage/>
         </SafeAreaView>
     );
 }
