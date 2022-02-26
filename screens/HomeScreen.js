@@ -13,7 +13,7 @@ function Banner() {
 
 export function HomeScreen() {
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.container}>
             <Banner/>
             <ColorImage/>
         </SafeAreaView>
@@ -22,6 +22,7 @@ export function HomeScreen() {
 
 const styles = StyleSheet.create(
     {
+        container: tw`h-full`,
         banner: tw`bg-purple-700 p-5`,
         bannerText: tw`text-white text-center text-lg`,
     }
