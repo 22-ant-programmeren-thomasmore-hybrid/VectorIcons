@@ -10,13 +10,19 @@ export function ColorImage() {
                 <View style={{width: 200, height: "100%", backgroundColor: "coral"}}/>
                 <View style={{width: 150, height: "100%", backgroundColor: "bisque"}}/>
             </View>
-            <View style={{flex: 1, width: 100, height: 50, backgroundColor: "lightsalmon"}}/>
-            <View style={{flex: 1, width: 50, height: 50, backgroundColor: "hotpink"}}/>
-            <View style={{flex: 1, width: "25%", height: 50, backgroundColor: "moccasin"}}/>
-            <View style={{flex: 1, width: "50%", height: 50, backgroundColor: "peachpuff"}}/>
-            <View style={{flex: 1, width: 150, height: 50, backgroundColor: "plum"}}/>
-            <View style={{flex: 1, width: 200, height: 50, backgroundColor: "tomato"}}/>
-            <View style={{flex: 1, width: "100%", height: 50, backgroundColor: "violet"}}/>
+            <View style={tw`flex-row flex-1 bg-pink-300`}>
+                <View style={{width: 100, height: "100%", backgroundColor: "lightsalmon"}}/>
+                <View style={{width: 50, height: "100%", backgroundColor: "hotpink"}}/>
+            </View>
+            <View style={tw`flex-row flex-1 bg-pink-300`}>
+                <View style={{width: "25%", height: "100%", backgroundColor: "moccasin"}}/>
+                <View style={{width: "50%", height: "100%", backgroundColor: "peachpuff"}}/>
+                <View style={{width: 150, height: "100%", backgroundColor: "plum"}}/>
+            </View>
+            <View style={[tw`flex-row bg-pink-100`, {height: 100}]}>
+                <View style={{width: 200, height: "100%", backgroundColor: "tomato"}}/>
+                <View style={{width: "100%", height: "100%", backgroundColor: "violet"}}/>
+            </View>
         </View>
     );
 }
