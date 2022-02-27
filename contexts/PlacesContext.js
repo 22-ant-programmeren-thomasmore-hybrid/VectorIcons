@@ -8,6 +8,7 @@ const INITIAL_DATA = [
         icon: "home",
         name: "Home",
         description: "Grote Markt, Mechelen, Belgium",
+        info: "hier woon ik niet echt",
         location: {lat: 51.0282259, lng: 4.4799391},
         color: "fuchsia"
     },
@@ -15,7 +16,20 @@ const INITIAL_DATA = [
         id: "456",
         icon: "briefcase",
         name: "Work",
+        info: "Ik werk op de school. De school is Thomas More. " +
+            "Er is ook nog een campus in Antwerpen waar we ook les hebben. " +
+            "Dat zijn dan andere studenten.",
         description: "Thomas More Campus de Nayer, Jan Pieter de Nayerlaan, Sint-Katelijne-Waver, Belgium",
+        location: {lat: 51.21640668638187, lng: 4.397249583341867}
+    },
+    {
+        id: "457",
+        icon: "briefcase",
+        name: "Work2",
+        color: "orange",
+        info: "Ik werk op de school. De school is Thomas More. " +
+            "Op deze campus heb ik maar af en toe les.",
+        description: "Thomas More Antwerpen - Campus Sint-Andries, Sint-Andriesstraat, Antwerpen",
         location: {lat: 51.06846350000001, lng: 4.4988931999999}
     },
     {
@@ -72,7 +86,7 @@ const INITIAL_DATA = [
         icon: "book",
         name: "wine",
         description: "Unwined, Steenweg, Mechelen",
-        location: {lat: 51.02810963586777,  lng: 4.478972041008338}
+        location: {lat: 51.02810963586777, lng: 4.478972041008338}
     },
 ];
 

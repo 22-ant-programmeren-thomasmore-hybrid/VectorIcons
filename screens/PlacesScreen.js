@@ -4,17 +4,7 @@ import tw from "twrnc";
 import {usePlacesContext} from "../contexts/PlacesContext";
 import {NAV_PLACE_DETAILS} from "../navigation_constants";
 import {useNavigation} from "@react-navigation/native";
-
-function PlaceIcon({place}) {
-    return (
-        <Icon name={place.icon}
-              color={place.color}
-              type="ionicon"
-              size={24}
-              style={styles.placeIcon}/>
-    );
-
-}
+import {PlaceIcon} from "../components/PlaceIcon";
 
 export function Place({place}) {
     const {onToggleIsSelected} = usePlacesContext();
@@ -67,7 +57,6 @@ const styles = StyleSheet.create(
         touchable: (isSelected) => tw`p-3 flex-row items-center ${isSelected ? "bg-orange-100" : ""}`,
         name: tw`font-semibold text-lg`,
         description: tw`text-gray-500`,
-        placeIcon: tw`mr-4 bg-pink-100 rounded-full p-3`,
         detailsButton: tw`py-3`,
         detailsButtonIcon: tw`bg-pink-100 rounded-full p-3`,
     }
