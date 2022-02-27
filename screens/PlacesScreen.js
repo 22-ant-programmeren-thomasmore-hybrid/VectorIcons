@@ -2,6 +2,8 @@ import {FlatList, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {Icon} from "react-native-elements";
 import tw from "twrnc";
 import {usePlacesContext} from "../contexts/PlacesContext";
+import {NAV_PLACE_DETAILS} from "../navigation_constants";
+import {useNavigation} from "@react-navigation/native";
 
 function PlaceIcon({place}) {
     return (
@@ -16,6 +18,7 @@ function PlaceIcon({place}) {
 
 export function Place({place}) {
     const {onToggleIsSelected} = usePlacesContext();
+    const navigation = useNavigation();
 
     return (
         <View style={styles.placeContainer}>
@@ -29,8 +32,11 @@ export function Place({place}) {
                     <Text style={styles.name}>{place.name}</Text>
                     <Text style={styles.description}>{place.description}</Text>
                 </View>
-                <TouchableOpacity>
-                    <Icon name={"chevron-right"} style={styles.rightButton}/>
+                <TouchableOpacity
+                    style={styles.detailsButton}
+                    onPress={() =>navigation.navigate(NAV_PLACE_DETAILS, {place})}
+                >
+                    <Icon name={"chevron-right"} style={styles.detailsButtonIcon}/>
                 </TouchableOpacity>
             </TouchableOpacity>
         </View>
@@ -62,6 +68,7 @@ const styles = StyleSheet.create(
         name: tw`font-semibold text-lg`,
         description: tw`text-gray-500`,
         placeIcon: tw`mr-4 bg-pink-100 rounded-full p-3`,
-        rightButton: tw`bg-pink-100 rounded-full p-3`,
+        detailsButton: tw`py-3`,
+        detailsButtonIcon: tw`bg-pink-100 rounded-full p-3`,
     }
 )
