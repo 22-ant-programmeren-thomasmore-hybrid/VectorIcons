@@ -6,6 +6,7 @@ import {usePlacesContext} from "../contexts/PlacesContext";
 function PlaceIcon({place}) {
     return (
         <Icon name={place.icon}
+              color={place.color}
               type="ionicon"
               size={24}
               style={styles.icon}/>
@@ -24,7 +25,7 @@ export function Place({place}) {
                 onPress={() => onToggleIsSelected(place)}
             >
                 <PlaceIcon place={place}/>
-                <View>
+                <View style={tw`flex-1`}>
                     <Text style={styles.name}>{place.name}</Text>
                     <Text style={styles.description}>{place.description}</Text>
                 </View>
@@ -52,6 +53,6 @@ const styles = StyleSheet.create(
         touchable: (isSelected) => tw`p-3 flex-row items-center ${isSelected ? "bg-orange-100" : ""}`,
         name: tw`font-semibold text-lg`,
         description: tw`text-gray-500`,
-        icon: tw`mr-4 bg-pink-300 rounded-full p-3`,
+        icon: tw`mr-4 bg-pink-100 rounded-full p-3`,
     }
 )
