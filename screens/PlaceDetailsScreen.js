@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from "react-native";
+import {ScrollView, StyleSheet, Text, View} from "react-native";
 import tw from "twrnc";
 import {PlaceIcon} from "../components/PlaceIcon";
 
@@ -36,15 +36,17 @@ export function PlaceDetailsScreen({route}) {
     const {place} = route.params;
     return (
         <View style={styles.container}>
-            <Banner place={place}/>
-            <PlaceProperty value={place.id} title="id"/>
-            <PlaceProperty value={place.name} title="name"/>
-            <PlaceProperty value={place.description} title="description"/>
-            <PlaceProperty value={place.info} title="info"/>
-            <PlaceProperty value={place.icon} title="icon"/>
-            <PlaceProperty value={place.color} title="color"/>
-            <PlaceProperty value={place.location.lat} title="latitude"/>
-            <PlaceProperty value={place.location.lng} title="longitude"/>
+            <ScrollView style={styles.scrollview}>
+                <Banner place={place}/>
+                <PlaceProperty value={place.id} title="id"/>
+                <PlaceProperty value={place.name} title="name"/>
+                <PlaceProperty value={place.description} title="description"/>
+                <PlaceProperty value={place.info} title="info"/>
+                <PlaceProperty value={place.icon} title="icon"/>
+                <PlaceProperty value={place.color} title="color"/>
+                <PlaceProperty value={place.location.lat} title="latitude"/>
+                <PlaceProperty value={place.location.lng} title="longitude"/>
+            </ScrollView>
         </View>
     );
 }
@@ -52,6 +54,7 @@ export function PlaceDetailsScreen({route}) {
 const styles = StyleSheet.create(
     {
         container: tw`h-full`,
+        scrollview: tw`mb-3`,
         banner: tw`p-5 flex-row bg-orange-200 `,
         bannerText: tw`text-purple-900 font-bold text-6xl text-center text-lg`,
     }
