@@ -51,7 +51,7 @@ export function PlacesScreen() {
 // noinspection JSSuspiciousNameCombination
 const styles = StyleSheet.create(
     {
-        container: tw`h-full bg-yellow-100`,
+        container: tw`h-full`,
         flatlist: tw`mb-3`,
         placeContainer: tw`w-full`,
         hairline: {height: StyleSheet.hairlineWidth, backgroundColor: "gray"},
