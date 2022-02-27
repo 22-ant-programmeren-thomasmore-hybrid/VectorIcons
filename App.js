@@ -6,6 +6,7 @@ import tw from "twrnc";
 import {NAV_HOME, NAV_IMAGES, NAV_PLACES} from "./navigation_constants";
 import {PlacesScreen} from "./screens/PlacesScreen";
 import {ImagesScreen} from "./screens/ImagesScreen";
+import {PlacesProvider} from "./contexts/PlacesContext";
 
 function ProvidedApp() {
     const Stack = createNativeStackNavigator();
@@ -29,7 +30,9 @@ export default function App() {
     return (
         <NavigationContainer>
             <SafeAreaProvider>
-                <ProvidedApp/>
+                <PlacesProvider>
+                    <ProvidedApp/>
+                </PlacesProvider>
             </SafeAreaProvider>
         </NavigationContainer>
     );
