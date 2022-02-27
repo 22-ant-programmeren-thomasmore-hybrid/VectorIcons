@@ -1,16 +1,21 @@
-import {StyleSheet, Text, View} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import tw from "twrnc";
 import {usePlacesContext} from "../contexts/PlacesContext";
 
 
 export function Place({place}) {
+    const {onToggleIsSelected} = usePlacesContext();
+
     return (
         <View style={styles.placeContainer}>
             <View style={styles.hairline}/>
-            <View style={tw`p-3`}>
-                <Text style={tw`font-semibold text-lg`}>{place.name}</Text>
-                <Text style={tw`text-gray-500`}>{place.description}</Text>
-            </View>
+            <TouchableOpacity
+                style={styles.button(place.isSelected)}
+                onPress={() => onToggleIsSelected(place)}
+            >
+                <Text style={styles.name}>{place.name}</Text>
+                <Text style={styles.description}>{place.description}</Text>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -30,7 +35,9 @@ const styles = StyleSheet.create(
     {
         container: tw`h-full bg-yellow-100`,
         placeContainer: tw`w-full`,
-        hairline: {height: StyleSheet.hairlineWidth, backgroundColor: "gray"}
-
+        hairline: {height: StyleSheet.hairlineWidth, backgroundColor: "gray"},
+        button: (isSelected) =>  tw`p-3 ${isSelected ? "bg-orange-100" : ""}`,
+        name: tw`font-semibold text-lg`,
+        description: tw`text-gray-500`,
     }
 )

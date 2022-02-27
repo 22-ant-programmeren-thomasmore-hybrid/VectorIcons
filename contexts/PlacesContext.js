@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useMemo, useState} from 'react';
+import React, {createContext, useCallback, useContext, useMemo, useState} from 'react';
 
 const PlacesContext = createContext();
 
@@ -64,12 +64,22 @@ const INITIAL_DATA = [
 
 
 export function PlacesProvider(props) {
-    const [places] = useState(INITIAL_DATA);
+    const [places, setPlaces] = useState(INITIAL_DATA);
+
+    const onToggleIsSelected = useCallback(
+            placeToToggle => {
+                const toggledPlace = {...placeToToggle, isSelected: !placeToToggle.isSelected};
+                console.log(toggledPlace);
+                setPlaces(places.map(place => placeToToggle.id === place.id ? toggledPlace : place))
+            },
+            [places, setPlaces]
+        )
+    ;
 
     const api = useMemo(() => ({
-        places
+        places, onToggleIsSelected
     }), [
-        places
+        places, onToggleIsSelected
     ]);
     return <PlacesContext.Provider value={api}>
         {props.children}
