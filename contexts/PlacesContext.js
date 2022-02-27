@@ -60,6 +60,20 @@ const INITIAL_DATA = [
         description: "Station Mechelen, Mechelen",
         location: {lat: 51.018069610898685, lng: 4.483248425601653}
     },
+    {
+        id: "772",
+        icon: "book",
+        name: "bib",
+        description: "Mechelen Public Library Het Predikheren, Goswin de Stassartstraat, Mechelen",
+        location: {lat: 51.03351749792014, lng: 4.479682456351852}
+    },
+    {
+        id: "775",
+        icon: "book",
+        name: "wine",
+        description: "Unwined, Steenweg, Mechelen",
+        location: {lat: 51.02810963586777,  lng: 4.478972041008338}
+    },
 ];
 
 
