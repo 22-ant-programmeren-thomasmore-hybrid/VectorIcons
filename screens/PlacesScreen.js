@@ -29,6 +29,9 @@ export function Place({place}) {
                     <Text style={styles.name}>{place.name}</Text>
                     <Text style={styles.description}>{place.description}</Text>
                 </View>
+                <TouchableOpacity>
+                    <Icon name={"chevron-right"} style={styles.rightButton}/>
+                </TouchableOpacity>
             </TouchableOpacity>
         </View>
     );
@@ -52,12 +55,13 @@ export function PlacesScreen() {
 const styles = StyleSheet.create(
     {
         container: tw`h-full`,
-        flatlist: tw`mb-3`,
+        flatlist: tw`mb-5`,
         placeContainer: tw`w-full`,
         hairline: {height: StyleSheet.hairlineWidth, backgroundColor: "gray"},
         touchable: (isSelected) => tw`p-3 flex-row items-center ${isSelected ? "bg-orange-100" : ""}`,
         name: tw`font-semibold text-lg`,
         description: tw`text-gray-500`,
         placeIcon: tw`mr-4 bg-pink-100 rounded-full p-3`,
+        rightButton: tw`bg-pink-100 rounded-full p-3`,
     }
 )
