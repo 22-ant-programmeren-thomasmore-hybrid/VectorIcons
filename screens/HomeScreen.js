@@ -12,19 +12,20 @@ function Banner() {
     );
 }
 
-function HomeScreenButton() {
+function HomeNavButton({navLink, text}) {
     const navigation = useNavigation();
+    return (<TouchableOpacity style={styles.buttonOpacity}
+                              onPress={() => navigation.navigate(navLink)}>
+            <Text style={styles.buttonText}>{text || navLink}</Text>
+        </TouchableOpacity>
+    );
+}
 
+function HomeScreenButtons() {
     return (
         <View style={[styles.buttonView, styles.buttonViewBare]}>
-            <TouchableOpacity style={styles.buttonOpacity}
-                              onPress={() => navigation.navigate(NAV_PLACES)}>
-                <Text style={styles.buttonText}> Let's go</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonOpacity}
-                              onPress={() => navigation.navigate(NAV_IMAGES)}>
-                <Text style={styles.buttonText}>Images</Text>
-            </TouchableOpacity>
+            <HomeNavButton navLink={NAV_PLACES} text="Let's go"/>
+            <HomeNavButton navLink={NAV_IMAGES}/>
         </View>
     );
 }
@@ -34,7 +35,7 @@ export function HomeScreen() {
         <>
             <Banner/>
             <ColorImage/>
-            <HomeScreenButton/>
+            <HomeScreenButtons/>
         </>
     );
 }
