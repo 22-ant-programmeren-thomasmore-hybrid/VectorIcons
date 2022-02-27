@@ -1,7 +1,8 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {SafeAreaView} from "react-native-safe-area-context";
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import tw from "twrnc";
 import {ColorImage} from "../components/ColorImage";
+import {NAV_PLACES} from "../navigation_constants";
+import {useNavigation} from "@react-navigation/native";
 
 function Banner() {
     return (
@@ -12,10 +13,12 @@ function Banner() {
 }
 
 function HomeScreenButton() {
+    const navigation = useNavigation();
+
     return (
         <View style={[styles.buttonView, styles.buttonViewBare]}>
             <TouchableOpacity style={styles.buttonOpacity}
-                              onPress={() => console.log("Hallo")}>
+                              onPress={() => navigation.navigate(NAV_PLACES)}>
                 <Text style={styles.buttonText}>
                     Let's go</Text>
             </TouchableOpacity>
@@ -25,17 +28,16 @@ function HomeScreenButton() {
 
 export function HomeScreen() {
     return (
-        <SafeAreaView style={styles.container}>
+        <>
             <Banner/>
             <ColorImage/>
             <HomeScreenButton/>
-        </SafeAreaView>
+        </>
     );
 }
 
 const styles = StyleSheet.create(
     {
-        container: tw`h-full`,
         banner: tw`bg-purple-700 p-5`,
         bannerText: tw`text-white text-center text-lg`,
         buttonView: tw`absolute top-1/2 w-full mt-4`,
