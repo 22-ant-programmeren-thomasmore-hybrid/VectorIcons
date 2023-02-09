@@ -1,8 +1,11 @@
+import {StatusBar} from 'expo-status-bar';
 import {HomeScreen} from "./screens/HomeScreen";
+import {SafeAreaProvider} from "react-native-safe-area-context/src/SafeAreaContext";
 
 function ProvidedApp() {
     return (
         <>
+            <StatusBar/>
             <HomeScreen/>
         </>
     );
@@ -10,6 +13,8 @@ function ProvidedApp() {
 
 export default function App() {
     return (
-        <ProvidedApp/>
+        <SafeAreaProvider>
+            <ProvidedApp/>
+        </SafeAreaProvider>
     );
 }

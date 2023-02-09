@@ -1,9 +1,12 @@
 import {Text, View} from 'react-native';
+import {SafeAreaView} from "react-native-safe-area-context";
 
 export function HomeScreen() {
     return (
-        <View>
-            <Text>My favourite places</Text>
-        </View>
+        <SafeAreaView>
+            <View>
+                <Text>My favourite places</Text>
+            </View>
+        </SafeAreaView>
     );
 }
