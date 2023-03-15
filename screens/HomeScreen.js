@@ -3,27 +3,40 @@ import tw from "twrnc";
 import {ColorImage} from "../components/ColorImage";
 import {NAV_IMAGES, NAV_PLACES} from "../navigation_constants";
 import {useNavigation} from "@react-navigation/native";
+import { FontAwesome } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import {Icon} from "react-native-elements";
 
 function Banner() {
+
     return (
-        <View style={styles.banner}>
-            <Text style={styles.bannerText}>My favourite places</Text>
+        <View >
+            <Text>My favourite places</Text>
+            <View>
+                <Icon name="play" size={30} color="#900" />
+                <Icon name="pause" size={30} color="#900" />
+            </View>
         </View>
     );
 }
 
 function HomeNavButton({navLink, text}) {
     const navigation = useNavigation();
-    return (<TouchableOpacity style={styles.buttonOpacity}
-                              onPress={() => navigation.navigate(navLink)}>
-            <Text style={styles.buttonText}>{text || navLink}</Text>
+    return (
+        <TouchableOpacity  onPress={() => navigation.navigate(navLink)}>
+            {text ? (
+                <Text >{text}</Text>
+            ) : (
+                navLink === NAV_IMAGES && <Ionicons name="ios-images-outline" size={32} color="white" />
+            )}
+            {navLink === NAV_PLACES && <FontAwesome name="map-marker" size={32} color="white" />}
         </TouchableOpacity>
     );
 }
 
 function HomeScreenButtons() {
     return (
-        <View style={[styles.buttonView, styles.buttonViewBare]}>
+        <View >
             <HomeNavButton navLink={NAV_PLACES} text="Let's go"/>
             <HomeNavButton navLink={NAV_IMAGES}/>
         </View>
